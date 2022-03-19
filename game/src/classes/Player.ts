@@ -1,5 +1,8 @@
 import { Physics, Scene } from "phaser";
+import { TexturesKey } from "../lib/Textures";
+import { ShipTypes } from "../lib/Types";
 import { Character } from "./Character";
+import { ShipFactory } from "./Factories/ShipFactory";
 import { Ship } from "./Ship";
 
 export class Player {
@@ -9,10 +12,13 @@ export class Player {
     constructor(scene: Scene,
         x: number,
         y: number,
-        texture: string,
-        frames?: string | number) {
+        ship: ShipTypes) {
 
-        this.ship = new Ship(scene, x, y, texture, frames);
+        this.ship = ShipFactory.create(scene, x, y, ship);
+    }
+
+    public update() {
+
     }
 
 }

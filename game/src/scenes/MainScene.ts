@@ -1,5 +1,6 @@
 import { Player } from '../classes/Player';
 import { TexturesKey } from '../lib/Textures';
+import { ShipTypes } from '../lib/Types';
 
 export class MainScene extends Phaser.Scene {
     constructor(
@@ -17,6 +18,7 @@ export class MainScene extends Phaser.Scene {
     }
 
     private initPlayer(): void {
-        this.player = new Player(this, 100, 100, TexturesKey.BasicShip)
+        this.game.canvas.width
+        this.player = new Player(this, this.game.canvas.width / 2, this.game.canvas.height / 2, ShipTypes.BasicShip)
     }
 }

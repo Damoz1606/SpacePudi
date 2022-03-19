@@ -22,10 +22,7 @@ export const CONFIG: any = {
     physics: {
         default: 'arcade',
         arcade: {
-            debug: true,
-            gravity: {
-                y: 500
-            }
+            debug: true
         }
     },
     scene: [
