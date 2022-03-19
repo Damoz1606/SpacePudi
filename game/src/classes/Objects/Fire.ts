@@ -3,6 +3,9 @@ import { Character } from '../Character';
 
 export abstract class Fire extends Character {
 
+    private damage!:number;
+    public abstract update(): void;
+
     constructor(scene: Scene,
         x: number,
         y: number,
