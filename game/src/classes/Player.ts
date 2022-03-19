@@ -14,6 +14,7 @@ export class Player {
 
     private keyLeft: Input.Keyboard.Key;
     private keyRight: Input.Keyboard.Key;
+    private keyAttack: Input.Keyboard.Key;
 
     constructor(scene: Scene,
         x: number,
@@ -33,6 +34,7 @@ export class Player {
     private initKeys(): void {
         this.keyLeft = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.LEFT);
         this.keyRight = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.RIGHT);
+        this.keyAttack = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.SPACE);
     }
 
     public update() {

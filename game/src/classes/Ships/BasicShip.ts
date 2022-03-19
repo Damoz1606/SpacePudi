@@ -7,5 +7,7 @@ export class BasicShip extends Ship {
         x: number,
         y: number) {
         super(scene, x, y, TexturesKey.BasicShip);
+
+        this.getBody().setSize(60);
     }
 }

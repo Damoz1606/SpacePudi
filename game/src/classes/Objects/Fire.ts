@@ -1,7 +1,7 @@
-import { Scene } from "phaser";
-import { Character } from "./Character";
+import { Scene } from 'phaser';
+import { Character } from '../Character';
 
-export abstract class Ship extends Character {
+export abstract class Fire extends Character {
 
     constructor(scene: Scene,
         x: number,
