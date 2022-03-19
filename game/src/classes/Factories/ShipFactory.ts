@@ -12,7 +12,7 @@ export class ShipFactory {
         x: number,
         y: number,
         type: ShipTypes
-    ) {
+    ): Ship {
         switch (type) {
             case ShipTypes.BasicShip:
                 return new BasicShip(scene, x, y);
