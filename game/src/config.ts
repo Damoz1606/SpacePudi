@@ -5,7 +5,7 @@ export const CONFIG: any = {
     title: 'Pudi',
     version: '0.0.1',
     type: Phaser.WEBGL,
-    backgroundColor: 0x444444,
+    backgroundColor: 0x000000,
     scale: {
         parent: 'phaser_container',
         width: 360,

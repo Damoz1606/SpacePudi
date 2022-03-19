@@ -21,4 +21,8 @@ export class MainScene extends Phaser.Scene {
         this.game.canvas.width
         this.player = new Player(this, this.game.canvas.width / 2, this.game.canvas.height / 2, ShipTypes.BasicShip)
     }
+
+    public update(time: number, delta: number): void {
+        this.player.update();
+    }
 }
