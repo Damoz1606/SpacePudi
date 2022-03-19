@@ -1,4 +1,5 @@
 import { Scene } from "phaser";
+import { FireEvents } from "../lib/Events";
 import { FireTypes } from "../lib/Types";
 import { Character } from "./Character";
 import { FireFactory } from "./Factories/FireFactory";
@@ -18,10 +19,15 @@ export abstract class Ship extends Character {
         super(scene, x, y, texture, frames);
 
         this.init();
+        this.initEventListeners();
     }
 
     private init(): void {
         this.fires = [];
+    }
+
+    private initEventListeners(): void {
+        this.scene.game.events.on(FireEvents.Collides, this.removeFire, this);
     }
 
     public update(): void {

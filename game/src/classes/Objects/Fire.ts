@@ -32,4 +32,11 @@ export abstract class Fire extends Character {
     public setBodyVelocity(velocity: number) {
         this.bodyVelocity = velocity;
     }
+
+    protected borderCollide(): boolean {
+        return this.getBody().blocked.left ||
+            this.getBody().blocked.right ||
+            this.getBody().blocked.down ||
+            this.getBody().blocked.up
+    }
 }
