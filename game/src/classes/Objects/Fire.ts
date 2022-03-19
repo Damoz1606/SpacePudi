@@ -3,7 +3,8 @@ import { Character } from '../Character';
 
 export abstract class Fire extends Character {
 
-    private damage!:number;
+    private damage!: number;
+    private bodyVelocity: number;
     public abstract update(): void;
 
     constructor(scene: Scene,
@@ -12,5 +13,23 @@ export abstract class Fire extends Character {
         texture: string,
         frames?: string | number) {
         super(scene, x, y, texture, frames);
+
+        this.setScale(0.1, 0.2);
+    }
+
+    public setRotation(radians: number): this {
+        return super.setRotation(radians);
+    }
+
+    public getRotation(): number {
+        return this.rotation;
+    }
+
+    public getBodyVelocity() {
+        return this.bodyVelocity;
+    }
+
+    public setBodyVelocity(velocity: number) {
+        this.bodyVelocity = velocity;
     }
 }

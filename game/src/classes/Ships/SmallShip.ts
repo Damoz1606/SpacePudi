@@ -8,8 +8,4 @@ export class SmallShip extends Ship {
         y: number) {
         super(scene, x, y, TexturesKey.SmallShip);
     }
-
-    protected fire(): void {
-        throw new Error("Method not implemented.");
-    }
 }

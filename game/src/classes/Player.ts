@@ -1,6 +1,6 @@
 import { Input, Physics, Scene } from "phaser";
 import { TexturesKey } from "../lib/Textures";
-import { PlayerAttributes, ShipTypes } from "../lib/Types";
+import { FireTypes, PlayerAttributes, ShipTypes } from "../lib/Types";
 import { degreesToRadians } from "../lib/utils";
 import { Character } from "./Character";
 import { ShipFactory } from "./Factories/ShipFactory";
@@ -37,22 +37,29 @@ export class Player {
         this.keyAttack = this.scene.input.keyboard.addKey(Input.Keyboard.KeyCodes.SPACE);
     }
 
-    public update() {
+    public update(time: number, delay: number) {
         this.checkRotation();
-        if(this.keyRight.isDown) {
+        this.movement(time);
+        this.ship.update();
+        this.ship.setRotation(degreesToRadians(this.velocity));
+    }
+
+    private movement(time: number): void {
+        if (this.keyRight.isDown) {
             this.velocity += PlayerAttributes.Velocity;
         } else if (this.keyLeft.isDown) {
             this.velocity -= PlayerAttributes.Velocity;
         }
-        this.ship.setRotation(degreesToRadians(this.velocity));
+        if (this.keyAttack.isDown) {
+            this.ship.fire(time, FireTypes.FireYellow);
+        }
     }
 
     private checkRotation(): void {
-        if(this.velocity >= 360) {
+        if (this.velocity >= 360) {
             this.velocity = 0;
         } else if (this.velocity <= 0) {
             this.velocity = 360;
         }
     }
-
 }

@@ -23,6 +23,6 @@ export class MainScene extends Phaser.Scene {
     }
 
     public update(time: number, delta: number): void {
-        this.player.update();
+        this.player.update(time, delta);
     }
 }
