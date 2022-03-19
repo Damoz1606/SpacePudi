@@ -2,6 +2,9 @@ import { Scene } from "phaser";
 import { TexturesKey } from "../../lib/Textures";
 import { ShipTypes } from "../../lib/Types";
 import { Ship } from "../Ship";
+import { BasicShip } from "../Ships/BasicShip";
+import { BigShip } from "../Ships/BigShip";
+import { SmallShip } from "../Ships/SmallShip";
 
 export class ShipFactory {
     public static create(
@@ -12,13 +15,13 @@ export class ShipFactory {
     ) {
         switch (type) {
             case ShipTypes.BasicShip:
-                return new Ship(scene, x, y, TexturesKey.BasicShip);
+                return new BasicShip(scene, x, y);
                 break;
             case ShipTypes.SmallShip:
-                return new Ship(scene, x, y, TexturesKey.SmallShip);
+                return new SmallShip(scene, x, y);
                 break;
             case ShipTypes.BigShip:
-                return new Ship(scene, x, y, TexturesKey.BigShip);
+                return new BigShip(scene, x, y);
                 break;
         }
     }
